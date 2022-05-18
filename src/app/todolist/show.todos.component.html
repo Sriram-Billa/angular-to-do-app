@@ -1,5 +1,35 @@
 <div class="container">
-  {{ title }}
+  <div class="row">
+    <div class="col-6 d-none col-md-5 d-md-block"></div>
+  </div>
+  <div class="row mt-1">
+    <div class="col-3 d-none col-md-3 d-md-block"></div>
+    <div
+      class="col-12 col-md-6 d-flex justify-content-center align-items-center"
+    >
+      <input
+        [(ngModel)]="newTodo.TODO_ITEM"
+        type="text"
+        value=""
+        class="col-7 form-control mb-2"
+        style="width: 300px"
+      />
+      <input
+        (click)="addTodo()"
+        type="button"
+        value="Add"
+        class="btn btn-primary mb-2"
+        *ngIf="addButton"
+      />
+      <input
+        (click)="updateTodo()"
+        type="button"
+        value="Update"
+        class="btn btn-primary mb-2"
+        *ngIf="updateButton"
+      />
+    </div>
+  </div>
   <div
     *ngFor="let todo of todos; let index = index"
     class="row mt-1"
@@ -12,16 +42,16 @@
     >
       <div class="col-9">{{ todo.TODO_ITEM }}</div>
       <input
-      (click)="deleteTodo(todo.UNIQUE_ID)"
-      type="button"
-      value="Edit"
-      class="btn btn-primary  mb-2"
-    />
+        (click)="editTodo(todo.UNIQUE_ID)"
+        type="button"
+        value="Edit"
+        class="btn btn-primary mb-2"
+      />
       <input
         (click)="deleteTodo(todo.UNIQUE_ID)"
         type="button"
         value="Delete"
-        class="btn btn-danger  mb-2"
+        class="btn btn-danger mb-2"
       />
     </div>
     <div class="col-3 d-none col-md-3 d-md-block"></div>
