@@ -1,0 +1,29 @@
+<div class="container">
+  {{ title }}
+  <div
+    *ngFor="let todo of todos; let index = index"
+    class="row mt-1"
+    style="height: 100px"
+  >
+    <div class="col-3 d-none col-md-3 d-md-block"></div>
+
+    <div
+      class="col-12 col-md-6 d-flex justify-content-center align-items-center"
+    >
+      <div class="col-9">{{ todo.TODO_ITEM }}</div>
+      <input
+      (click)="deleteTodo(todo.UNIQUE_ID)"
+      type="button"
+      value="Edit"
+      class="btn btn-primary  mb-2"
+    />
+      <input
+        (click)="deleteTodo(todo.UNIQUE_ID)"
+        type="button"
+        value="Delete"
+        class="btn btn-danger  mb-2"
+      />
+    </div>
+    <div class="col-3 d-none col-md-3 d-md-block"></div>
+  </div>
+</div>
