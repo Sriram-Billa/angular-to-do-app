@@ -14,9 +14,10 @@ export class TodoService {
   constructor(
     private _http: HttpClient,
     private _configService: ConfigService
-  ) {}
+  ) { }
 
   getAllTodos(): Observable<any[]> {
+    console.log("something");
     return this._http.get<any[]>(this.API_URL + '/all').pipe(
       tap({
         next: (data) => console.log(this.API_URL, data),
